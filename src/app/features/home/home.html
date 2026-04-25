@@ -1,0 +1,25 @@
+<div class="center" style="padding: 20px">
+  <div class="card" style="text-align: center; width: 250px">
+    <h2>{{ user?.username }}</h2>
+
+    <!-- Avatar -->
+    <div class="avatar">
+      <img *ngIf="userData?.avatar; else fallback" [src]="userData?.avatar" />
+      <ng-template #fallback>
+        {{ getInitial() }}
+      </ng-template>
+    </div>
+
+    <!-- Hidden input -->
+    <input
+      type="file"
+      accept="image/*"
+      #fileInput
+      style="display: none"
+      (change)="onFileChange($event)"
+    />
+
+    <!-- Button -->
+    <button class="btn btn-primary" (click)="fileInput.click()">Thay ảnh đại diện</button>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<!-- <div class="center">
+  <div class="card" style="width: 300px">
+    <h2 style="text-align: center">Register</h2>
+
+    <input class="input" [(ngModel)]="username" placeholder="Username" />
+    <input class="input" [(ngModel)]="password" type="password" placeholder="Password" />
+
+    <button class="btn btn-primary" (click)="register()">Tạo Tài Khoản</button>
+
+    <p style="text-align: center; margin-top: 10px">
+      <a routerLink="/login">Đăng nhập</a>
+    </p>
+  </div>
+</div> -->
+
+<div class="center">
+  <div class="card" style="width: 300px">
+    <h2 style="text-align: center">Register</h2>
+
+    <input class="input" placeholder="Username" [formControl]="form.controls.username" />
+
+    <div class="error" *ngIf="form.controls.username.touched && form.controls.username.invalid">
+      <small>Username tối thiểu 3 ký tự</small>
+    </div>
+
+    <input
+      class="input"
+      type="password"
+      placeholder="Password"
+      [formControl]="form.controls.password"
+    />
+
+    <div class="error" *ngIf="form.controls.password.touched && form.controls.password.invalid">
+      <small>Password tối thiểu 6 ký tự</small>
+    </div>
+
+    <input
+      class="input"
+      type="password"
+      placeholder="Confirm Password"
+      [formControl]="form.controls.confirm"
+    />
+
+    <div class="error" *ngIf="form.controls.confirm.touched && form.controls.confirm.invalid">
+      <small>Nhập lại password</small>
+    </div>
+
+    <button class="btn btn-primary" [disabled]="form.invalid" (click)="register()">
+      Create Account
+    </button>
+
+    <p style="text-align: center; margin-top: 10px">
+      <a routerLink="/login">Đăng nhập</a>
+    </p>
+  </div>
+</div>

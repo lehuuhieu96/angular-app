@@ -1,0 +1,50 @@
+<!-- <div class="center">
+  <div class="card" style="width: 300px">
+    <h2 style="text-align: center">Angular App</h2>
+
+    <input class="input" [(ngModel)]="username" placeholder="Tên" />
+    <input class="input" [(ngModel)]="password" type="password" placeholder="Mật Khẩu" />
+
+    <button class="btn btn-primary" (click)="login()">Đăng Nhập</button>
+    <button style="text-align: center; margin-top: 10px" class="btn" routerLink="/register">
+      Đăng Ký
+    </button>
+
+    <p style="text-align: center; margin-top: 10px">
+      <a routerLink="/register">Đăng ký</a>
+    </p>
+  </div>
+</div> -->
+
+<div class="center">
+  <div class="card" style="width: 300px">
+    <h2 style="text-align: center">Angular App</h2>
+
+    <!-- Username -->
+    <input class="input" placeholder="Tên" [formControl]="form.controls.username" />
+
+    <div class="error" *ngIf="form.controls.username.touched && form.controls.username.invalid">
+      <small *ngIf="form.controls.username.errors?.['required']"> Username bắt buộc </small>
+      <small *ngIf="form.controls.username.errors?.['minlength']"> Ít nhất 3 ký tự </small>
+    </div>
+
+    <!-- Password -->
+    <input
+      class="input"
+      type="password"
+      placeholder="Mật Khẩu"
+      [formControl]="form.controls.password"
+    />
+
+    <div class="error" *ngIf="form.controls.password.touched && form.controls.password.invalid">
+      <small *ngIf="form.controls.password.errors?.['required']"> Password bắt buộc </small>
+      <small *ngIf="form.controls.password.errors?.['minlength']"> Ít nhất 6 ký tự </small>
+    </div>
+
+    <button class="btn btn-primary" [disabled]="form.invalid" (click)="login()">Đăng Nhập</button>
+
+    <button style="text-align: center; margin-top: 10px" class="btn" routerLink="/register">
+      Đăng Ký
+    </button>
+  </div>
+</div>
