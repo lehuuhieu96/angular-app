@@ -24,7 +24,7 @@
     <input class="input" placeholder="Tên" [formControl]="form.controls.username" />
 
     <div class="error" *ngIf="form.controls.username.touched && form.controls.username.invalid">
-      <small *ngIf="form.controls.username.errors?.['required']"> Username bắt buộc </small>
+      <small *ngIf="form.controls.username.errors?.['required']"> Tên bắt buộc </small>
       <small *ngIf="form.controls.username.errors?.['minlength']"> Ít nhất 3 ký tự </small>
     </div>
 
@@ -37,7 +37,7 @@
     />
 
     <div class="error" *ngIf="form.controls.password.touched && form.controls.password.invalid">
-      <small *ngIf="form.controls.password.errors?.['required']"> Password bắt buộc </small>
+      <small *ngIf="form.controls.password.errors?.['required']"> Mật khẩu bắt buộc </small>
       <small *ngIf="form.controls.password.errors?.['minlength']"> Ít nhất 6 ký tự </small>
     </div>
 
